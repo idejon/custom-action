@@ -4,4 +4,4 @@ WORKDIR /usr/src/app
 
 COPY entrypoint.py /usr/local/bin/entrypoint.py
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.py"]
+ENTRYPOINT ["python3 /usr/local/bin/entrypoint.py"]
