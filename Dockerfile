@@ -1,8 +1,14 @@
-FROM ubuntu
+FROM alpine
 
-WORKDIR /usr/src/app
+RUN apk add --no-cache \
+        bash           \
+        httpie         \
+        jq &&          \
+        which bash &&  \
+        which http &&  \
+        which jq
 
-COPY hello.py /github/workspace/hello.py
-COPY entrypoint.sh /github/workspace/entrypoint.py
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY sample_push_event.json /sample_push_event.json
 
-ENTRYPOINT ["/github/workspace/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
