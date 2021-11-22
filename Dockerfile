@@ -2,7 +2,7 @@ FROM ubuntu
 
 WORKDIR /usr/src/app
 
-COPY hello.py /usr/local/bin/hello.py
-COPY entrypoint.sh /usr/local/bin/entrypoint.py
+COPY hello.py /github/workspace/hello.py
+COPY entrypoint.sh /github/workspace/entrypoint.py
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/github/workspace/entrypoint.sh"]
